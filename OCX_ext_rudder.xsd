@@ -1,0 +1,280 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2023 rel. 2 (x64) (http://www.altova.com) by Astrup, Ole Christian (DNV AS) -->
+<!-- Copyright 2023 Open Class 3D Exchange (OCX) Consortium (https://3docx.org)
+			Licensed under the Apache License, Version 2.0 (the "License"); 
+			You may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+			Unless required by applicable law or agreed to in writing, the 3Docx standard and software distributed under the License is distributed on an 
+			"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either expressed or implied.
+			The OCX Consortium is not liable to any use whatsoever of the distributed standard or software based on the standard.
+			See the License for the specific language governing permissions and limitations under the License.  -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:ocx="https://3docx.org/fileadmin//ocx_schema//V287//OCX_Schema.xsd" xmlns:unitsml="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" xmlns:ocxRU="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<!-- Import the OCX published schema -->
+	<xs:import namespace="https://3docx.org/fileadmin//ocx_schema//V287//OCX_Schema.xsd" schemaLocation="https://3docx.org/fileadmin//ocx_schema//V287/OCX_Schema.xsd"/>
+	<xs:annotation>
+		<xs:documentation>
+			Copyright 2023 Open Class 3D Exchange (OCX) Consortium (https://3docx.org)
+			Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+			http://www.apache.org/licenses/LICENSE-2.0
+			Unless required by applicable law or agreed to in writing, the 3Docx standard and software distributed under the License is distributed on an
+			"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 	either expressed or implied.
+			The OCX Consortium is not liable to any use whatsoever of the distributed standard or software based on the standard.
+			See the License for the specific language governing permissions and limitations under the License.
+	<ocx:SchemaChange author="oca" date="2021-11-02" version="1.0.0">
+				<ocx:Description>
+				Development version of the schema for APPROVED+ Loadline using the dedicated namespace ocxeq.
+				</ocx:Description>
+			</ocx:SchemaChange></xs:documentation>
+	</xs:annotation>
+	<!-- Root Element -->
+	<xs:element name="RudderDocument" type="ocxRU:RudderDocument_T">
+		<xs:annotation>
+			<xs:documentation>Root element of the Rudder document.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RudderDocument_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the root element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ocx:Header"/>
+			<xs:element ref="ocxRU:SemiSpadeRudder"/>
+			<xs:element ref="ocxRU:GeneralRudderData"/>
+		</xs:sequence>
+		<xs:attribute name="schemaVersion" type="xs:string" use="required" fixed="1.0.0">
+			<xs:annotation>
+				<xs:documentation>Current XML schema version (Format - x.y.z) x : Incremented for backward incompatible changes ( Ex - Adding a required attribute, etc.) y : Major backward compatible changes [ Ex - Adding a new node ,fixing major CRs,etc..] z : Minor backward compatible changes (Ex - adding an optional attribute, etc).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- ========================================================================================  -->
+	<!--RUDDER COMPONENTS-->
+	<!-- ========================================================================================  -->
+	<xs:element name="SemiSpadeRudder">
+		<xs:annotation>
+			<xs:documentation>The  model-based definitiion of a semi-spade rudder type.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ocxRU:SemiSpadeRudder_T"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="SemiSpadeRudder_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the semi-spade rudder.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocx:EntityBase_T">
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="ocxRU:RudderCoordinateSystem"/>
+					<xs:element ref="ocxRU:RudderPlate" maxOccurs="unbounded"/>
+					<xs:element ref="ocxRU:CastedPart" maxOccurs="unbounded"/>
+					<xs:element ref="ocxRU:RudderStock"/>
+					<xs:element ref="ocxRU:StockLiner"/>
+					<xs:element ref="ocxRU:StockBush"/>
+					<xs:element ref="ocxRU:Pintle" maxOccurs="unbounded"/>
+					<xs:element ref="ocxRU:PintleLiner" maxOccurs="unbounded"/>
+					<xs:element ref="ocxRU:Nut" maxOccurs="unbounded"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RudderPart_T">
+		<xs:annotation>
+			<xs:documentation>Abstract Type definition of a rudder part.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocx:EntityBase_T">
+				<xs:sequence>
+					<xs:element ref="ocx:Material"/>
+					<xs:element ref="ocx:ExternalGeometryRef"/>
+				</xs:sequence>
+				<xs:attribute ref="ocx:tightness" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Pintle" type="ocxRU:Pintle_T">
+		<xs:annotation>
+			<xs:documentation>The rudder pintle.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Pintle_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder pintle.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Nut" type="ocxRU:Pintle_T">
+		<xs:annotation>
+			<xs:documentation>The rudder nut.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Nut_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder nut.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CastedPart" type="ocxRU:CastedPart_T">
+		<xs:annotation>
+			<xs:documentation>A rudder casted part.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CastedPart_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder pintle.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T">
+				<xs:attribute name="NDT" type="xs:string"/>
+				<xs:attribute name="heatTreatment" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RudderStock" type="ocxRU:RudderStock_T">
+		<xs:annotation>
+			<xs:documentation>The rudder stock.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RudderStock_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder stock.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RudderPlate" type="ocxRU:RudderPlate_T">
+		<xs:annotation>
+			<xs:documentation>The rudder plating.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RudderPlate_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder plating.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T">
+				<xs:sequence>
+					<xs:element ref="ocx:Thickness"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="StockLiner" type="ocxRU:StockLiner_T">
+		<xs:annotation>
+			<xs:documentation>The rudder stock liner.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="StockLiner_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder stock liner.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="StockBush" type="ocxRU:StockBush_T">
+		<xs:annotation>
+			<xs:documentation>The rudder stock liner.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="StockBush_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder stock liner.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="PintleLiner" type="ocxRU:PintleLiner_T">
+		<xs:annotation>
+			<xs:documentation>The rudder pintle liner.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="PintleLiner_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the rudder pintle liner.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocxRU:RudderPart_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ========================================================================================  -->
+	<!-- GENERAL RUDDER DATA-->
+	<!-- ========================================================================================  -->
+	<xs:element name="RudderCoordinateSystem" type="ocxRU:RudderCoordinateSystem_T"/>
+	<xs:complexType name="RudderCoordinateSystem_T">
+		<xs:complexContent>
+			<xs:extension base="ocx:DescriptionBase_T">
+				<xs:sequence>
+					<xs:element ref="ocx:XGrid"/>
+					<xs:element ref="ocx:YGrid"/>
+					<xs:element ref="ocx:ZGrid"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="GeneralRudderData" type="ocxRU:GeneralRudderData_T"/>
+	<xs:complexType name="GeneralRudderData_T">
+		<xs:sequence>
+			<xs:element ref="ocxRU:MaxServiceSpeedAhead"/>
+			<xs:element ref="ocxRU:MaxServiceSpeedAstern"/>
+			<xs:element ref="ocxRU:IceClass"/>
+		</xs:sequence>
+		<xs:attribute ref="ocxRU:rudderArrangement" use="required"/>
+		<xs:attribute ref="ocxRU:rudderProfileType" use="required"/>
+	</xs:complexType>
+	<xs:element name="IceClass" type="ocxRU:IceClass_T"/>
+	<xs:complexType name="IceClass_T">
+		<xs:sequence>
+			<xs:element ref="ocxRU:MaxServiceSpeedAhead"/>
+			<xs:element ref="ocxRU:MaxServiceSpeedAstern"/>
+		</xs:sequence>
+		<xs:attribute name="iceNotation" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="ICE (1A*F)"/>
+					<xs:enumeration value="ICE (1A*)"/>
+					<xs:enumeration value="ICE (1A)"/>
+					<xs:enumeration value="ICE (1B)"/>
+					<xs:enumeration value="ICE (1C)"/>
+					<xs:enumeration value="ICE-C"/>
+					<xs:enumeration value=""/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="MaxServiceSpeedAhead" type="ocx:Quantity_T"/>
+	<xs:element name="MaxServiceSpeedAstern"/>
+	<!-- ========================================================================================  -->
+	<!-- ATTRIBUTES -->
+	<!-- ========================================================================================  -->
+	<xs:attribute name="rudderProfileType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="Mixed profiles"/>
+				<xs:enumeration value="Hollow profile"/>
+				<xs:enumeration value="Flat-sided"/>
+				<xs:enumeration value="NACA/Göttingen"/>
+				<xs:enumeration value="Nozzle rudder"/>
+				<xs:enumeration value="Rudder with flap"/>
+				<xs:enumeration value="Single plate"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="rudderArrangement">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Normal"/>
+				<xs:enumeration value="Not in propeller slip stream"/>
+				<xs:enumeration value="Behind fixed propeller nozzle"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+</xs:schema>
