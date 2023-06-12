@@ -1,4 +1,4 @@
-# ocx-extension-rudder
+# ocx-extension-rudder {version}
 
 ![3DOCX.org logo](./docs/_static/logo.png)
 # The Open Class 3D Exchange (OCX) ocx-rudder-extension schema

@@ -1,0 +1,46 @@
+[project]
+name = "ocx_rudder_ext"
+version = "0.0.1"
+description = "An extension to the Open Class 3D Exchange (OCX) standard adressing a rudder 3D model."
+authors = [
+  { name = "Ole Christian Astrup", email = "ole.christian.astrup@dnv.com" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache 2.0",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "xsdata",
+    "bumpver",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/OCXStandard/ocx-extension-rudder"
+"Bug Tracker" = "https://github.com/OCXStandard/ocx-extension-rudder/issues"
+
+[tool.bumpver]
+current_version = "2023.0.1"
+version_pattern = "YYYY.BUILD[-TAG]"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+]
+
+"README.md" = [
+    "{version}",
+    "{pep440_version}",
+]
+
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
