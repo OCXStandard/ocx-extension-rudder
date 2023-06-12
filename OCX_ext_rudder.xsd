@@ -7,14 +7,10 @@
 			"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either expressed or implied.
 			The OCX Consortium is not liable to any use whatsoever of the distributed standard or software based on the standard.
 			See the License for the specific language governing permissions and limitations under the License.  -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
-	xmlns:ocx="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" 
-	xmlns:unitsml="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" 
-	xmlns:ocxRU="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" 
-	targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:ocx="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" xmlns:unitsml="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" xmlns:ocxRU="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<!-- Import the OCX published schema -->
 	<xs:import namespace="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" schemaLocation="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd"/>
-	<xs:import namespace="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" schemaLocation="https://3docx.org/fileadmin/ocx_schema/unitsml/unitsmlSchema_lite-0.9.18.xsd"/>
+	<xs:import namespace="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" schemaLocation="https://3docx.org/fileadmin/ocx_schema//unitsml//unitsmlSchema_lite-0.9.18.xsd"/>
 	<xs:annotation>
 		<xs:documentation>
 			Copyright 2023 Open Class 3D Exchange (OCX) Consortium (https://3docx.org)
@@ -40,13 +36,14 @@
 		<xs:annotation>
 			<xs:documentation>Type definition of the root element.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
+		<xs:choice maxOccurs="unbounded">
 			<xs:element ref="ocx:Header"/>
 			<xs:element ref="ocxRU:SemiSpadeRudder"/>
 			<xs:element ref="ocxRU:GeneralRudderData"/>
-			<xs:element ref="ocx:MaterialCatalogue"/>
+			<xs:element ref="ocxRU:RudderMaterials"/>
+			<xs:element ref="ocx:DesignView"/>
 			<xs:element ref="unitsml:UnitsML"/>
-		</xs:sequence>
+		</xs:choice>
 		<xs:attribute name="schemaVersion" type="xs:string" use="required" fixed="1.0.0">
 			<xs:annotation>
 				<xs:documentation>Current XML schema version (Format - x.y.z) x : Incremented for backward incompatible changes ( Ex - Adding a required attribute, etc.) y : Major backward compatible changes [ Ex - Adding a new node ,fixing major CRs,etc..] z : Minor backward compatible changes (Ex - adding an optional attribute, etc).</xs:documentation>
@@ -90,10 +87,10 @@
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ocx:EntityBase_T">
-				<xs:sequence>
+				<xs:choice maxOccurs="2">
 					<xs:element ref="ocx:MaterialRef"/>
 					<xs:element ref="ocx:ExternalGeometryRef"/>
-				</xs:sequence>
+				</xs:choice>
 				<xs:attribute ref="ocxRU:rudderFunction" use="required"/>
 				<xs:attribute ref="ocx:tightness" use="required"/>
 			</xs:extension>
@@ -154,9 +151,6 @@
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ocxRU:RudderPart_T">
-				<xs:sequence>
-					<xs:element ref="ocxRU:CharpyVData"/>
-				</xs:sequence>
 				<xs:attribute name="NDT" type="xs:string"/>
 				<xs:attribute name="heatTreatment" type="xs:string"/>
 			</xs:extension>
@@ -257,11 +251,11 @@
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ocx:DescriptionBase_T">
-				<xs:sequence>
+				<xs:choice maxOccurs="3">
 					<xs:element ref="ocx:XGrid"/>
 					<xs:element ref="ocx:YGrid"/>
 					<xs:element ref="ocx:ZGrid"/>
-				</xs:sequence>
+				</xs:choice>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -271,11 +265,12 @@
 		</xs:annotation>
 	</xs:element>
 	<xs:complexType name="GeneralRudderData_T">
-		<xs:sequence>
+		<xs:choice maxOccurs="unbounded">
 			<xs:element ref="ocxRU:MaxServiceSpeedAhead"/>
 			<xs:element ref="ocxRU:MaxServiceSpeedAstern"/>
 			<xs:element ref="ocxRU:IceClass"/>
-		</xs:sequence>
+			<xs:element ref="ocxRU:RudderDimensions"/>
+		</xs:choice>
 		<xs:attribute ref="ocxRU:rudderArrangement" use="required"/>
 		<xs:attribute ref="ocxRU:rudderProfileType" use="required"/>
 	</xs:complexType>
@@ -314,24 +309,107 @@
 			<xs:documentation>The inner diameter of a part.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="CharpyVData_T">
-		<xs:annotation>
-			<xs:documentation>Type definition of the Charpy V test data</xs:documentation>
-		</xs:annotation>
-	</xs:complexType>
-	<xs:element name="CharpyVData" type="ocxRU:CharpyVData_T">
-		<xs:annotation>
-			<xs:documentation>The Charpy V test data for a casted part.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
 	<xs:element name="BearingThickness" type="ocx:Quantity_T">
 		<xs:annotation>
-			<xs:documentation>The bearing thickness of the parent element (pintle, stock)</xs:documentation>
+			<xs:documentation>The bearing thickness of the parent element (pintle, stock).</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="BushAllowableSurfacePressure">
 		<xs:annotation>
 			<xs:documentation>The allowable surface pressure of the bush in Pa.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RudderDimensions">
+		<xs:annotation>
+			<xs:documentation>The main rudder dimensions.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="ocxRU:NeckBearingHeightHn"/>
+				<xs:element ref="ocxRU:UpperBearingHeightHu"/>
+				<xs:element ref="ocxRU:UpperCouplingHeightHc"/>
+				<xs:element ref="ocxRU:HornPintleHeightHh"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NeckBearingHeightHn" type="ocx:Quantity_T">
+		<xs:annotation>
+			<xs:documentation>Neck bearing height mesured form rudder base (bottom), Hn.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UpperCouplingHeightHc" type="ocx:Quantity_T">
+		<xs:annotation>
+			<xs:documentation>Upper coupling height mesured form rudder base (bottom), Hc.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UpperBearingHeightHu" type="ocx:Quantity_T">
+		<xs:annotation>
+			<xs:documentation>Upper bearing height mesured form rudder base (bottom), Hu.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="HornPintleHeightHh" type="ocx:Quantity_T">
+		<xs:annotation>
+			<xs:documentation>Horn pintle height mesured form rudder base (bottom), Hh.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- ========================================================================================  -->
+	<!-- RUDDER MATERIAL DATA-->
+	<!-- ========================================================================================  -->
+	<xs:element name="RudderMaterials" type="ocxRU:RudderMaterials_T">
+		<xs:annotation>
+			<xs:documentation>Catalogue of Rudder material types.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RudderMaterials_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of catalogue rudder materials.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocx:MaterialCatalogue_T">
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="ocxRU:ForgedMaterial" maxOccurs="unbounded"/>
+					<xs:element ref="ocxRU:CastedMaterial" maxOccurs="unbounded"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CharpyVData_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the Charpy V test data</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocx:Material_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CharpyVData" type="ocxRU:CharpyVData_T">
+		<xs:annotation>
+			<xs:documentation>The Charpy V test data for a material.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ForgedMaterial_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the forged material data</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocx:Material_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ForgedMaterial" type="ocxRU:CastedMaterial_T">
+		<xs:annotation>
+			<xs:documentation>Forged material data.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CastedMaterial_T">
+		<xs:annotation>
+			<xs:documentation>Type definition of the Charpy V test data.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ocx:Material_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CastedMaterial" type="ocxRU:CastedMaterial_T">
+		<xs:annotation>
+			<xs:documentation>The Charpy V test data for a casted part.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<!-- ========================================================================================  -->
@@ -368,7 +446,7 @@
 	</xs:attribute>
 	<xs:attribute name="rudderFunction">
 		<xs:annotation>
-			<xs:documentation>The rudder function type</xs:documentation>
+			<xs:documentation>The rudder function type.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
@@ -392,6 +470,9 @@
 		</xs:simpleType>
 	</xs:attribute>
 	<xs:attribute name="iceNotation">
+		<xs:annotation>
+			<xs:documentation>The rudder ice notation.</xs:documentation>
+		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
 				<xs:enumeration value="ICE (1A*F)"/>
