@@ -7,19 +7,10 @@
 			"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either expressed or implied.
 			The OCX Consortium is not liable to any use whatsoever of the distributed standard or software based on the standard.
 			See the License for the specific language governing permissions and limitations under the License.  -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
-xmlns:unitsml="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" 
-xmlns:ocxRU="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" 
-xmlns:ocx="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" 
-targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:unitsml="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" xmlns:ocxRU="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" xmlns:ocx="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<!-- Import the OCX published schema -->
-	<xs:import 
-	namespace="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" 
-	schemaLocation="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd"/>
-	<xs:import 
-	namespace="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" 
-	schemaLocation="https://3docx.org/fileadmin//ocx_schema/unitsml/unitsmlSchema_lite-0.9.18.xsd"/>
+	<xs:import namespace="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" schemaLocation="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd"/>
+	<xs:import namespace="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18" schemaLocation="https://3docx.org/fileadmin//ocx_schema/unitsml/unitsmlSchema_lite-0.9.18.xsd"/>
 	<xs:annotation>
 		<xs:documentation>
 			Copyright 2023 Open Class 3D Exchange (OCX) Consortium (https://3docx.org)
@@ -292,10 +283,10 @@ targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext
 		<xs:annotation>
 			<xs:documentation>Type definition of the IceClass.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
+		<xs:choice minOccurs="0" maxOccurs="2">
 			<xs:element ref="ocxRU:MaxServiceSpeedAhead"/>
 			<xs:element ref="ocxRU:MaxServiceSpeedAstern"/>
-		</xs:sequence>
+		</xs:choice>
 		<xs:attribute ref="ocxRU:iceNotation" use="required"/>
 	</xs:complexType>
 	<xs:element name="MaxServiceSpeedAhead" type="ocx:Quantity_T">
