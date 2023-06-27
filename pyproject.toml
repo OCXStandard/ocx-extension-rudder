@@ -63,6 +63,10 @@ src = "Readme.md"
 name = "check changelog"
 cmd = "grep -q {new_version} Changelog.md"
 
+[[tool.tbump.before_commit]]
+name = "insert version string in databinding"
+cmd = "python main.py {new_version}"
+
 # Or run some commands after the git tag and the branch
 # have been pushed:
 #  [[tool.tbump.after_push]]
