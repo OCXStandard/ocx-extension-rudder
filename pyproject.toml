@@ -58,6 +58,11 @@ src = "pyproject.toml"
 
 [[tool.tbump.file]]
 src = "OCX_ext_rudder.xsd"
+search = 'fixed="{current_version}"'
+
+[[tool.tbump.file]]
+src = "OCX_ext_rudder.xsd"
+search = 'rudder/v{current_version}'
 
 # You can specify a list of commands to
 # run after the files have been patched
