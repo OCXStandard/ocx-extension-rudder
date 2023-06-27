@@ -1,5 +1,9 @@
 # ocx-extension-rudder: Changelog
 
+## 1.0.0 - 2023-06-27
+### 1st release 
+ - Bump version 0.1.0 -> 1.0.0
+
 ## 0.1.0 - 2023-06-12
 ### Added 
 - Add new elements and attributes [(1249671)](https://github.com/OCXStandard/ocx-extension-rudder/commit/1249671c3db6e211d5c47f9a91ff0ff3c5846399)
