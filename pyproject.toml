@@ -60,8 +60,8 @@ src = "Readme.md"
 # and before the git commit is made
 
 [[tool.tbump.before_commit]]
-name = "check changelog"
-cmd = "grep -q {new_version} Changelog.md"
+name = "Generate data-bindings"
+cmd = "xsdata generate OCX_ext_rudder.xsd"
 
 [[tool.tbump.before_commit]]
 name = "insert version string in databinding"

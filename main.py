@@ -19,7 +19,6 @@ def insert_version():
     else:
         print('Data-bindings has not been generated.')
         sys.exit(1)
-
     init_py.insert(0,f'__version__ = "{new_version}"\n')
     init_py.insert(0,f'# The dta-bindings are generated from the schema version={new_version}.\n')
 

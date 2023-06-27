@@ -9,7 +9,7 @@ This is the official GitHub repository for the Open Class 3D Exchange (OCX) sche
 The latest published version of the OCX schema is available from the consortium's website.
 
 ## Schema Dcocumentation
-The schema documentation is generated using XMLSpy, see the documentation [README.md](./docs/README.md).
+The schema documentation is generated using XMLSpy, see the documentation [README.md](https://ocxstandard.github.io/ocx-extension-rudder/).
 
 ## Changelog
 
