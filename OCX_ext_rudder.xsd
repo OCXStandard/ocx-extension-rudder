@@ -44,7 +44,7 @@
 			<xs:element ref="ocx:DesignView"/>
 			<xs:element ref="unitsml:UnitsML"/>
 		</xs:choice>
-		<xs:attribute name="schemaVersion" type="xs:string" use="required" fixed="0.1.0">
+		<xs:attribute name="schemaVersion" type="xs:string" use="required" fixed="1.0.0">
 			<xs:annotation>
 				<xs:documentation>Current XML schema version (Format - x.y.z) x : Incremented for backward incompatible changes ( Ex - Adding a required attribute, etc.) y : Major backward compatible changes [ Ex - Adding a new node ,fixing major CRs,etc..] z : Minor backward compatible changes (Ex - adding an optional attribute, etc).</xs:documentation>
 			</xs:annotation>

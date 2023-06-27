@@ -383,22 +383,22 @@ class IceTypeT:
     class Meta:
         name = "IceClass_T"
 
-    max_service_speed_ahead: Optional[MaxServiceSpeedAhead] = field(
-        default=None,
+    max_service_speed_ahead: List[MaxServiceSpeedAhead] = field(
+        default_factory=list,
         metadata={
             "name": "MaxServiceSpeedAhead",
             "type": "Element",
             "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd",
-            "required": True,
+            "max_occurs": 2,
         }
     )
-    max_service_speed_astern: Optional[MaxServiceSpeedAstern] = field(
-        default=None,
+    max_service_speed_astern: List[MaxServiceSpeedAstern] = field(
+        default_factory=list,
         metadata={
             "name": "MaxServiceSpeedAstern",
             "type": "Element",
             "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/v1.0.0/OCX_ext_rudder.xsd",
-            "required": True,
+            "max_occurs": 2,
         }
     )
     ice_notation: Optional[IceNotationValue] = field(

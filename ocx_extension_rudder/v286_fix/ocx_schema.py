@@ -1073,6 +1073,8 @@ class GradeValue(Enum):
         D40: High strength steel. Ref. IACS UR W11.
         E40: High strength steel. Ref. IACS UR W11.
         F40: High strength steel. Ref. IACS UR W11.
+        C48:
+        F48:
     """
     A = "A"
     B = "B"
@@ -1090,6 +1092,8 @@ class GradeValue(Enum):
     D40 = "D40"
     E40 = "E40"
     F40 = "F40"
+    C48 = "C48"
+    F48 = "F48"
 
 
 class LiquidCargoTypeValue(Enum):
@@ -3046,9 +3050,8 @@ class EndCutRef(EndCutRefT):
 
 @dataclass
 class EntityBaseT(DescriptionBaseT):
-    """
-    Abstract base for all structural parts (Panel, Plate, Seam ...) information are
-    derived.
+    """Abstract base for all structural parts (Panel, Plate, Seam ...)
+    information are derived.
 
     Attributes
         guidref: A globally Unique ID referring an entity in the sending
@@ -3264,20 +3267,24 @@ class GridSpacingSystemT(DescriptionBaseT):
     class Meta:
         name = "GridSpacingSystem_T"
 
-    grid_position: Optional[GridPosition] = field(
-        default=None,
+    grid_position: List[GridPosition] = field(
+        default_factory=list,
         metadata={
             "name": "GridPosition",
             "type": "Element",
             "namespace": "https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd",
+            "min_occurs": 2,
+            "max_occurs": 2,
         }
     )
-    spacing: Optional[Spacing] = field(
-        default=None,
+    spacing: List[Spacing] = field(
+        default_factory=list,
         metadata={
             "name": "Spacing",
             "type": "Element",
             "namespace": "https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd",
+            "min_occurs": 2,
+            "max_occurs": 2,
         }
     )
     first_grid_number: Optional[int] = field(

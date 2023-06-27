@@ -415,13 +415,14 @@ class SymbolType:
     Used in units, quantities, and prefixes.
 
     Attributes
-        type: Type of symbol representation.  Examples include ASCII,
-            unicode, HTML, and MathML.
+        type_value: Type of symbol representation.  Examples include
+            ASCII, unicode, HTML, and MathML.
         content:
     """
-    type: Optional[object] = field(
+    type_value: Optional[object] = field(
         default=None,
         metadata={
+            "name": "type",
             "type": "Attribute",
             "required": True,
         }
