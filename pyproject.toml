@@ -57,7 +57,7 @@ tag_template = "v{new_version}"
 src = "pyproject.toml"
 
 [[tool.tbump.file]]
-src = "OCX_ext.rudder.xsd"
+src = "OCX_ext_rudder.xsd"
 
 # You can specify a list of commands to
 # run after the files have been patched
