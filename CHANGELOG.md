@@ -1,5 +1,15 @@
 # ocx-extension-rudder: Changelog
 
+## 1.1.0 - 2023-06-27
+### Documentation
+ - Update XML Spy html documentation. 
+
+## 1.1.0 - 2023-06-27
+### Changed
+ - Change ocxRU target namespace in schema. 
+ - Bump version 1.0.0 -> 1.1.0
+
+
 ## 1.0.0 - 2023-06-27
 ### 1st release 
  - Bump version 0.1.0 -> 1.0.0
