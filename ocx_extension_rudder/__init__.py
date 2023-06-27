@@ -1,5 +1,3 @@
-# The dta-bindings are generated from the schema version=1.0.0.
-__version__ = "1.0.0"
 from ocx_extension_rudder.ocx_ext_rudder import (
     BearingThickness,
     Bush,
