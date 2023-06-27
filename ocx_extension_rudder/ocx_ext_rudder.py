@@ -20,7 +20,7 @@ from ocx_extension_rudder.v286_fix.ocx_schema import (
     TightnessValue,
 )
 
-__NAMESPACE__ = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+__NAMESPACE__ = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -29,7 +29,7 @@ class BushAllowableSurfacePressure:
     The allowable surface pressure of the bush in Pa.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 class IceNotationValue(Enum):
@@ -84,7 +84,7 @@ class BearingThickness(QuantityT):
     The bearing thickness of the parent element (pintle, stock).
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -120,7 +120,7 @@ class HornPintleHeightHh(QuantityT):
     Horn pintle height mesured form rudder base (bottom), Hh.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -129,7 +129,7 @@ class InnerDiameter(QuantityT):
     The inner diameter of a part.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -138,7 +138,7 @@ class MaxServiceSpeedAhead(QuantityT):
     Maximum service speeed ahead.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -147,7 +147,7 @@ class MaxServiceSpeedAstern(QuantityT):
     Maximum service speed astern.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -156,7 +156,7 @@ class NeckBearingHeightHn(QuantityT):
     Neck bearing height mesured form rudder base (bottom), Hn.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -165,7 +165,7 @@ class OuterDiameter(QuantityT):
     The outer diameter of a part.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -236,7 +236,7 @@ class RudderPartT(EntityBaseT):
         metadata={
             "name": "rudderFunction",
             "type": "Attribute",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -256,7 +256,7 @@ class UpperBearingHeightHu(QuantityT):
     Upper bearing height mesured form rudder base (bottom), Hu.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -265,7 +265,7 @@ class UpperCouplingHeightHc(QuantityT):
     Upper coupling height mesured form rudder base (bottom), Hc.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -281,7 +281,7 @@ class BushT(RudderPartT):
         metadata={
             "name": "OuterDiameter",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -290,7 +290,7 @@ class BushT(RudderPartT):
         metadata={
             "name": "InnerDiameter",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -317,7 +317,7 @@ class BushT(RudderPartT):
         metadata={
             "name": "BushAllowableSurfacePressure",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -329,7 +329,7 @@ class CastedMaterial(CastedMaterialT):
     The Charpy V test data for a casted part.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -363,7 +363,7 @@ class CharpyVdata(CharpyVdataT):
     """
     class Meta:
         name = "CharpyVData"
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -372,7 +372,7 @@ class ForgedMaterial(CastedMaterialT):
     Forged material data.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -388,7 +388,7 @@ class IceTypeT:
         metadata={
             "name": "MaxServiceSpeedAhead",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "max_occurs": 2,
         }
     )
@@ -397,7 +397,7 @@ class IceTypeT:
         metadata={
             "name": "MaxServiceSpeedAstern",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "max_occurs": 2,
         }
     )
@@ -406,7 +406,7 @@ class IceTypeT:
         metadata={
             "name": "iceNotation",
             "type": "Attribute",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -434,7 +434,7 @@ class LinerT(RudderPartT):
         metadata={
             "name": "OuterDiameter",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -443,7 +443,7 @@ class LinerT(RudderPartT):
         metadata={
             "name": "InnerDiameter",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -471,7 +471,7 @@ class NutT(RudderPartT):
         metadata={
             "name": "OuterDiameter",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -480,7 +480,7 @@ class NutT(RudderPartT):
         metadata={
             "name": "InnerDiameter",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -502,7 +502,7 @@ class PintleT(RudderPartT):
         metadata={
             "name": "BearingThickness",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -515,7 +515,7 @@ class RudderCoordinateSystem(RudderCoordinateSystemT):
     X = 0 ant the centre of rudder stock. Z = 0 at base.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -524,7 +524,7 @@ class RudderDimensions:
     The main rudder dimensions.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
     neck_bearing_height_hn: List[NeckBearingHeightHn] = field(
         default_factory=list,
@@ -581,7 +581,7 @@ class Bush(BushT):
     The rudder bushr.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -590,7 +590,7 @@ class CastedPart(CastedPartT):
     A rudder casted part.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -600,7 +600,7 @@ class IceType(IceTypeT):
     """
     class Meta:
         name = "IceClass"
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -609,7 +609,7 @@ class Liner(LinerT):
     The rudder stock or pintle liner.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -618,7 +618,7 @@ class Nut(PintleT):
     The rudder nut.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -627,7 +627,7 @@ class Pintle(PintleT):
     The rudder pintle.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -643,7 +643,7 @@ class RudderMaterialsT(MaterialCatalogueT):
         metadata={
             "name": "ForgedMaterial",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     casted_material: List[CastedMaterial] = field(
@@ -651,7 +651,7 @@ class RudderMaterialsT(MaterialCatalogueT):
         metadata={
             "name": "CastedMaterial",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
 
@@ -662,7 +662,7 @@ class RudderPlate(RudderPlateT):
     The rudder plating.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -675,7 +675,7 @@ class GeneralRudderDataT:
         metadata={
             "name": "MaxServiceSpeedAhead",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     max_service_speed_astern: List[MaxServiceSpeedAstern] = field(
@@ -683,7 +683,7 @@ class GeneralRudderDataT:
         metadata={
             "name": "MaxServiceSpeedAstern",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     ice_class: List[IceType] = field(
@@ -691,7 +691,7 @@ class GeneralRudderDataT:
         metadata={
             "name": "IceClass",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     rudder_dimensions: List[RudderDimensions] = field(
@@ -699,7 +699,7 @@ class GeneralRudderDataT:
         metadata={
             "name": "RudderDimensions",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     rudder_arrangement: Optional[RudderArrangementValue] = field(
@@ -707,7 +707,7 @@ class GeneralRudderDataT:
         metadata={
             "name": "rudderArrangement",
             "type": "Attribute",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -716,7 +716,7 @@ class GeneralRudderDataT:
         metadata={
             "name": "rudderProfileType",
             "type": "Attribute",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -728,7 +728,7 @@ class RudderMaterials(RudderMaterialsT):
     Catalogue of Rudder material types.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -750,7 +750,7 @@ class RudderStockT(RudderPartT):
         metadata={
             "name": "Liner",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -759,7 +759,7 @@ class RudderStockT(RudderPartT):
         metadata={
             "name": "Bush",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -768,7 +768,7 @@ class RudderStockT(RudderPartT):
         metadata={
             "name": "BearingThickness",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
             "required": True,
         }
     )
@@ -780,7 +780,7 @@ class GeneralRudderData(GeneralRudderDataT):
     The rudder data.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -789,7 +789,7 @@ class RudderStock(RudderStockT):
     The rudder stock.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -805,7 +805,7 @@ class SemiSpadeRudderT(EntityBaseT):
         metadata={
             "name": "RudderCoordinateSystem",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     rudder_plate: List[RudderPlate] = field(
@@ -813,7 +813,7 @@ class SemiSpadeRudderT(EntityBaseT):
         metadata={
             "name": "RudderPlate",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     casted_part: List[CastedPart] = field(
@@ -821,7 +821,7 @@ class SemiSpadeRudderT(EntityBaseT):
         metadata={
             "name": "CastedPart",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     rudder_stock: List[RudderStock] = field(
@@ -829,7 +829,7 @@ class SemiSpadeRudderT(EntityBaseT):
         metadata={
             "name": "RudderStock",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     pintle: List[Pintle] = field(
@@ -837,7 +837,7 @@ class SemiSpadeRudderT(EntityBaseT):
         metadata={
             "name": "Pintle",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     liner: List[Liner] = field(
@@ -845,7 +845,7 @@ class SemiSpadeRudderT(EntityBaseT):
         metadata={
             "name": "Liner",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     nut: List[Nut] = field(
@@ -853,7 +853,7 @@ class SemiSpadeRudderT(EntityBaseT):
         metadata={
             "name": "Nut",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
 
@@ -864,7 +864,7 @@ class SemiSpadeRudder(SemiSpadeRudderT):
     The  model-based definitiion of a semi-spade rudder type.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 
 
 @dataclass
@@ -902,7 +902,7 @@ class RudderDocumentT:
         metadata={
             "name": "SemiSpadeRudder",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     general_rudder_data: List[GeneralRudderData] = field(
@@ -910,7 +910,7 @@ class RudderDocumentT:
         metadata={
             "name": "GeneralRudderData",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     rudder_materials: List[RudderMaterials] = field(
@@ -918,7 +918,7 @@ class RudderDocumentT:
         metadata={
             "name": "RudderMaterials",
             "type": "Element",
-            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd",
+            "namespace": "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd",
         }
     )
     design_view: List[DesignView] = field(
@@ -939,7 +939,7 @@ class RudderDocumentT:
     )
     schema_version: str = field(
         init=False,
-        default="1.0.0",
+        default="1.1.0",
         metadata={
             "name": "schemaVersion",
             "type": "Attribute",
@@ -954,4 +954,4 @@ class RudderDocument(RudderDocumentT):
     Root element of the Rudder document.
     """
     class Meta:
-        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+        namespace = "https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"

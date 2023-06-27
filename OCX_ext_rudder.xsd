@@ -3,9 +3,9 @@
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
 		xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
 		xmlns:unitsml="urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18"
-		xmlns:ocxRU="https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+		xmlns:ocxRU="https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 		xmlns:ocx="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd"
-		targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.0.0/OCX_ext_rudder.xsd"
+		targetNamespace="https://3docx.org/fileadmin/ocx_schema/extension/rudder/v1.1.0/OCX_ext_rudder.xsd"
 		elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.0">
 	<!-- Import the OCX published schema -->
 	<xs:import namespace="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd" schemaLocation="https://3docx.org/fileadmin//ocx_schema//V286_fix//OCX_Schema.xsd"/>
@@ -36,7 +36,7 @@
 			<xs:element ref="ocx:DesignView"/>
 			<xs:element ref="unitsml:UnitsML"/>
 		</xs:choice>
-		<xs:attribute name="schemaVersion" type="xs:string" use="required" fixed="1.0.0">
+		<xs:attribute name="schemaVersion" type="xs:string" use="required" fixed="1.1.0">
 			<xs:annotation>
 				<xs:documentation>Current XML schema version (Format - x.y.z) x : Incremented for backward incompatible changes ( Ex - Adding a required attribute, etc.) y : Major backward compatible changes [ Ex - Adding a new node ,fixing major CRs,etc..] z : Minor backward compatible changes (Ex - adding an optional attribute, etc).</xs:documentation>
 			</xs:annotation>

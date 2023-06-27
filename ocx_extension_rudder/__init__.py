@@ -1,3 +1,5 @@
+# The data-bindings are generated from the schema version=1.1.0.
+__version__ = "1.1.0"
 from ocx_extension_rudder.ocx_ext_rudder import (
     BearingThickness,
     Bush,
