@@ -2,13 +2,13 @@
 
 ## 1.0.0 - 2023-06-12
 ### Added 
-- Added new elements and attributes [(1249671)](https://github.com/OCXStandard/ocx-extension-rudder/commit/1249671c3db6e211d5c47f9a91ff0ff3c5846399)
-- Added ``DesignVew`` to the ``RudderDocument``
+- Add new elements and attributes [(1249671)](https://github.com/OCXStandard/ocx-extension-rudder/commit/1249671c3db6e211d5c47f9a91ff0ff3c5846399)
+- Add ``DesignVew`` to the ``RudderDocument``
 
 ## 1.0.0 - 2023-05-01
 
 ### Documentation
-- Added XMLSpy documentation [(6285026)](https://github.com/OCXStandard/ocx-extension-rudder/commit/62850264e94abe317bc500b9a93a3a9ea60eda09)
+- Add XMLSpy documentation [(6285026)](https://github.com/OCXStandard/ocx-extension-rudder/commit/62850264e94abe317bc500b9a93a3a9ea60eda09)
 
 ## 1.0.0 - 2023-04-20
 ### Added

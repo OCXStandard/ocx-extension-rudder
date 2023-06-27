@@ -1,4 +1,8 @@
-# ocx-extension-rudder {version}
+# ocx-extension-rudder 
+# ocx-extension-rudder 
+# ocx-extension-rudder 
+# ocx-extension-rudder 
+### version = 0.1.0
 
 ![3DOCX.org logo](./docs/_static/logo.png)
 # The Open Class 3D Exchange (OCX) ocx-rudder-extension schema
@@ -8,9 +12,11 @@ This is the official GitHub repository for the Open Class 3D Exchange (OCX) sche
 The latest published version of the OCX schema is available from the consortium's website.
 
 ## Schema Dcocumentation
-The schema dcumentation is generated using XMLSpy: [ocx-extension-rudder documentation](docs\ocx-ext-rudder.html)
+The schema documentation is generated using XMLSpy, see the documentation [Readme.md](docs/Readme.md).
 
-## [Changelog](CHANGELOG.md)
+## Changelog
+
+See the [Changelog.md](CHANGELOG.md) for the changelog history.
 
 ## How to contribute
 The schema file is maintained using an XML editor like Altova XMLSpy.

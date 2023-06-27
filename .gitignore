@@ -1,3 +1,5 @@
 .idea
 # XMLSpy temp file
 docs/tmp0000.html
+# Builds
+dist/
