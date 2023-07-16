@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional, Union
-from ocx_extension_rudder.xml import LangValue
+from ocx_rudder_120a0.xml import LangValue
 
 __NAMESPACE__ = "urn:oasis:names:tc:unitsml:schema:xsd:UnitsMLSchema_lite-0.9.18"
 

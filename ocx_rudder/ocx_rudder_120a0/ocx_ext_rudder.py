@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional
-from ocx_extension_rudder.unitsml.unitsml_schema_lite_0_9_18 import UnitsMl
-from ocx_extension_rudder.v286_fix.ocx_schema import (
+from ocx_rudder_120a0.unitsml.unitsml_schema_lite_0_9_18 import UnitsMl
+from ocx_rudder_120a0.v286_fix.ocx_schema import (
     DescriptionBaseT,
     DesignView,
     EntityBaseT,
@@ -613,7 +613,7 @@ class Liner(LinerT):
 
 
 @dataclass
-class Nut(PintleT):
+class Nut(NutT):
     """
     The rudder nut.
     """

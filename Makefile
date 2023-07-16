@@ -34,12 +34,6 @@ conda-clean: ## Purge all conda tarballs, log files and caches
 .Phony: conda-clean
 
 
-# PROJECT DEPENDENCIES ########################################################
-
-# VIRTUAL_ENV ?= ${VENV}
-# DEPENDENCIES := $(VIRTUAL_ENV)/$(shell cksum pyproject.toml)
-
-
 # Color output
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
@@ -64,6 +58,7 @@ doc: ## Build the html docs using Sphinx. For other Sphinx options, run make in 
 
 # RUN ##################################################################
 
+# GENERATE DATABINDINGS ########################################################
 
 generate: ## Generate the python data-bindings. See the .xsdata.xml file for xsdata settings
 	@xsdata generate OCX_ext_rudder.xsd

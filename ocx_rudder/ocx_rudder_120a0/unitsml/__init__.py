@@ -1,4 +1,4 @@
-from ocx_extension_rudder.unitsml.unitsml_schema_lite_0_9_18 import (
+from ocx_rudder.ocx_rudder_120a0.unitsml.unitsml_schema_lite_0_9_18 import (
     AmountOfSubstance,
     AmountOfSubstanceType,
     Dimension,

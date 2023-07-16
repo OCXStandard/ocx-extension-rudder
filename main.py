@@ -4,7 +4,7 @@
 from pathlib import Path
 import sys
 
-PACKAGE = './ocx_extension_rudder/'
+PACKAGE = './ocx_rudder/'
 
 new_version = sys.argv[1]
 

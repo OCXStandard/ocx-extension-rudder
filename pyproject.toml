@@ -1,30 +1,24 @@
-[project]
-name = "ocx_extension_rudder"
-version = "1.1.0"
-description = "An extension to the Open Class 3D Exchange (OCX) standard for 3D rudder models subject to approval by the classification society."
-authors = [
-  { name = "Ole Christian Astrup", email = "ole.christian.astrup@dnv.com" },
-]
-license = { file = "LICENSE" }
-readme = "README.md"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: Apache Software License",
-    "Operating System :: OS Independent",
-]
-requires-python = ">=3.7"
-dependencies = [
-    "xsdata",
-]
 
 [project.urls]
 "Homepage" = "https://github.com/OCXStandard/ocx-extension-rudder"
 "Bug Tracker" = "https://github.com/OCXStandard/ocx-extension-rudder/issues"
 
-
 [build-system]
-requires = ["flit_core >=3.8,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "OCX-rudder"
+version = "1.1.0"
+description = ""
+authors = ["ocastrup <ole.christain.astrup@dnv.com>"]
+readme = "README.md"
+packages = [{include = "ocx"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+xsdata = "^23.6"
+packaging = "^23.1"
 
 [tool.tbump]
 # Uncomment this if your project is hosted on GitHub:
@@ -42,7 +36,16 @@ regex = '''
   (?P<minor>\d+)
   \.
   (?P<patch>\d+)
+  (\-
+    (?P<extra>.+)
+  )?
   '''
+
+[[tool.tbump.field]]
+# the name of the field
+name = "extra"
+# the default value to use, if there is no match
+default = ""
 
 [tool.tbump.git]
 message_template = "Bump to {new_version}"
@@ -56,25 +59,44 @@ tag_template = "v{new_version}"
 src = "pyproject.toml"
 
 [[tool.tbump.file]]
-src = "OCX_ext_rudder.xsd"
+src = "./ocx/__init__.py"
+
+[[tool.tbump.file]]
+src = "OCX_Schema.xsd"
 search = 'fixed="{current_version}"'
 
 [[tool.tbump.file]]
-src = "OCX_ext_rudder.xsd"
-search = 'rudder/v{current_version}'
+src = "OCX_Schema.xsd"
+version_template = "{major}{minor}{patch}{extra}"
+search = 'ocx_schema//V{current_version}'
 
 # You can specify a list of commands to
 # run after the files have been patched
 # and before the git commit is made
 
 [[tool.tbump.before_commit]]
-name = "Generate data-bindings"
-cmd = "xsdata generate OCX_ext_rudder.xsd"
+name = "Insert new xsdata package name"
+cmd = "python xsdata_package.py {new_version}"
 
 [[tool.tbump.before_commit]]
-name = "insert version string in databinding"
-cmd = "python main.py {new_version}"
+name = "Cd to ./ocx"
+cmd = "cd ./ocx"
 
+[[tool.tbump.before_commit]]
+name = "Generate data-bindings."
+cmd = "xsdata generate ../OCX_ext_rudder.xsd"
+
+[[tool.tbump.before_commit]]
+name = "Cd to .."
+cmd = "cd .."
+
+[[tool.tbump.before_commit]]
+name = "Add generated files to commit."
+cmd = "git add ./ocx_*"
+
+[[tool.tbump.before_commit]]
+name = "Insert version string in databinding."
+cmd = "python insert_version.py {new_version}"
 # Or run some commands after the git tag and the branch
 # have been pushed:
 #  [[tool.tbump.after_push]]

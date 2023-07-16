@@ -1,4 +1,4 @@
-from ocx_extension_rudder.v286_fix.ocx_schema import (
+from ocx_rudder_120a0.v286_fix.ocx_schema import (
     ApPos,
     AirPipeHeight,
     AngleOfRepose,

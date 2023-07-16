@@ -1,6 +1,4 @@
-# The data-bindings are generated from the schema version=1.1.0.
-__version__ = "1.1.0"
-from ocx_extension_rudder.ocx_ext_rudder import (
+from ocx_rudder.ocx_rudder_120a0.ocx_ext_rudder import (
     BearingThickness,
     Bush,
     BushAllowableSurfacePressure,
@@ -50,7 +48,7 @@ from ocx_extension_rudder.ocx_ext_rudder import (
     RudderFunctionValue,
     RudderProfileTypeValue,
 )
-from ocx_extension_rudder.xml import LangValue
+from ocx_rudder.ocx_rudder_120a0.xml import LangValue
 
 __all__ = [
     "BearingThickness",
