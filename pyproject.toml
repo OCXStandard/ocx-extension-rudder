@@ -59,16 +59,16 @@ tag_template = "v{new_version}"
 src = "pyproject.toml"
 
 [[tool.tbump.file]]
-src = "./ocx/__init__.py"
+src = "./ocx_rudder/__init__.py"
 
 [[tool.tbump.file]]
-src = "OCX_Schema.xsd"
+src = "OCX_ext_rudder.xsd"
 search = 'fixed="{current_version}"'
 
 [[tool.tbump.file]]
-src = "OCX_Schema.xsd"
+src = "OCX_ext_rudder.xsd"
 version_template = "{major}{minor}{patch}{extra}"
-search = 'ocx_schema//V{current_version}'
+search = 'rudder/V{current_version}'
 
 # You can specify a list of commands to
 # run after the files have been patched
@@ -79,8 +79,8 @@ name = "Insert new xsdata package name"
 cmd = "python xsdata_package.py {new_version}"
 
 [[tool.tbump.before_commit]]
-name = "Cd to ./ocx"
-cmd = "cd ./ocx"
+name = "Cd to ./ocx_rudder"
+cmd = "cd ./ocx_rudder"
 
 [[tool.tbump.before_commit]]
 name = "Generate data-bindings."

@@ -1,5 +1,9 @@
 # ocx-extension-rudder: Changelog
 
+## 1.2.0 - 2023-07-17
+### Changed
+Fix wrong base version fo ocxRU:Nut
+
 ## 1.1.0 - 2023-06-27
 ### Documentation
  - Update XML Spy html documentation. 
