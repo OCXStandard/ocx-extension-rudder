@@ -1,48 +1,48 @@
 #  Copyright (c) 2023. OCX Consortium https://3docx.org. See the LICENSE
 """Script to update the xsdata package name from the schema version."""
-import re
-from pathlib import Path
-import sys
 
-import packaging.version
-from packaging.version import Version, parse
+import sys
+from pathlib import Path
+
+from packaging.version import InvalidVersion, parse
 from xsdata.models.config import GeneratorConfig
 
-PACKAGE = 'ocx_rudder'
-CONFIG_FILE = './ocx_rudder/.xsdata.xml'
-
-# The new package version
+PACKAGE = "ocx_rudder"
+CONFIG_FILE = Path("./ocx_rudder/.xsdata.xml")
 
 
-def insert_package_name():
+def package_name(version: str) -> str:
+    """Return the data-binding sub-package name for a schema version, e.g. ``ocx_rudder_120``."""
+    v = parse(version)
+    name = f"{PACKAGE}_{v.major}{v.minor}{v.micro}"
+    if v.pre:
+        pr1, pr2 = v.pre
+        name += f"{pr1}{pr2}"
+    return name
+
+
+def insert_package_name(new_version: str) -> None:
     """Update the package name in .xsdata.xml."""
+    if CONFIG_FILE.exists():
+        config = GeneratorConfig.read(CONFIG_FILE)
+        print(f"Updating the configuration file {CONFIG_FILE}")
+    else:
+        print(f"Initializing configuration file {CONFIG_FILE}")
+        config = GeneratorConfig.create()
+        # OCX databindings defaults
+        config.output.docstring_style = "Google"
 
-    new_version = sys.argv[1]
-    # parse new_version
-    try:
-        v= parse(new_version)
-        if v.is_prerelease:
-            pr1, pr2 = v.pre
-            package_dir = f'{PACKAGE}_{v.major}{v.minor}{v.micro}{pr1}{pr2}'
-        else:
-            package_dir = f'{PACKAGE}_{v.major}{v.minor}{v.micro}'
-        file_path = Path(CONFIG_FILE)
-        if file_path.exists():
-            config = GeneratorConfig.read(file_path)
-            print(f'Updating the configuration file {CONFIG_FILE} ')
-        else:
-            print(f'Initializing configuration file {CONFIG_FILE}')
-            config = GeneratorConfig.create()
-            # OCX databindings defaults
-            config.output.docstring_style = 'Google'
+    # Dotted path so bindings are generated into ./ocx_rudder/<package> from the repo root.
+    package = f"{PACKAGE}.{package_name(new_version)}"
+    config.output.package = package
+    print(f"New package name is {package} from new version {new_version}")
+    with CONFIG_FILE.open("w") as fp:
+        config.write(fp, config)
 
-        config.output.package = package_dir
-        print(f'New package name is {package_dir} from new version {new_version}')
-        with file_path.open("w") as fp:
-            config.write(fp, config)
-    except packaging.version.InvalidVersion as e:
-        print(e)
-        exit(1)
 
 if __name__ == "__main__":
-    insert_package_name()
+    try:
+        insert_package_name(sys.argv[1])
+    except InvalidVersion as e:
+        print(e)
+        sys.exit(1)

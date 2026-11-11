@@ -1,5 +1,13 @@
 .idea
 # XMLSpy temp file
 docs/tmp0000.html
+# Generated XMLSpy schema documentation (not tracked)
+docs/XML/
 # Builds
 dist/
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
